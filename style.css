@@ -9,18 +9,19 @@
     
     --clr-Soft-blue: hsl(215, 51%, 70%);
     --clr-Cyan: hsl(178, 100%, 50%);
+    --clr-Cyan-hover: hsla(178, 100%, 50%, 0.5);
     
     /* ### Neutral */
     
-    --clr-Very-dark-blue: hsl(217, 54%, 11%);/* main bg */
-    --clr-Very-dark-blue: hsl(216, 50%, 16%);/* card bg */
-    --clr-Very-dark-blue: hsl(215, 32%, 27%);/* line */
+    --clr-Very-dark-blue-bg: hsl(217, 54%, 11%);/* main bg */
+    --clr-Very-dark-blue-card: hsl(216, 50%, 16%);/* card bg */
+    --clr-Very-dark-blue-line: hsl(215, 32%, 27%);/* line */
     --clr-White: hsl(0, 0%, 100%);
     
     /* ## Typography */
 
     --fs: 18px;
-    --Family: 'Outfit', sans-serif;
+    --ff: 'Outfit', sans-serif;
     --fw-regular: 300;
     --fw-semibold: 400;
     --fw-bold: 600;
@@ -38,6 +39,251 @@
 img {
     max-width: 100%;
 }
+
+
+body {
+    min-height: 100vh;
+    background-color: var(--clr-Very-dark-blue-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+
+/* CARD */
+
+.card {
+    width: 440px;
+    background-color: var(--clr-Very-dark-blue-card);
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    padding: 26px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 17px 50px 8px rgba(0,0,0,0.3);
+}
+
+.card-img {
+    position: relative;
+    display: flex;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--clr-Cyan-hover);
+}
+.card-img:hover .hover-img {
+    display: flex;
+}
+
+
+.card-img img {
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* card-info */
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.card-info_title {
+    cursor: pointer;
+    font-family: var(--ff);
+    font-size: 28px;
+    font-weight: var(--fw-bold);
+    color: var(--clr-White);
+}
+
+.card-info_title:hover {
+    color: var(--clr-Cyan);
+}
+
+.card-info_subtitle {
+    font-family: var(--ff);
+    font-size: 22px;
+    font-weight: var(--fw-semibold);
+    color: var(--clr-Soft-blue);
+}
+
+/* price-time */
+
+.price-time {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    margin-top: 12px;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.price img {
+    width: 18px;
+}
+
+.price-tag {
+    font-family: var(--ff);
+    font-size: 22px;
+    font-weight: var(--fw-bold);
+    color: var(--clr-Cyan);
+}
+
+.time {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.time img {
+    width: 28px;
+}
+
+.time-text {
+    font-family: var(--ff);
+    font-size: 22px;
+    font-weight: var(--fw-bold);
+    color: var(--clr-Soft-blue);
+}
+
+
+hr {
+    border: 1px solid;
+    border-color: var(--clr-Very-dark-blue-line);
+    margin-top: 10px;
+}
+
+/* creator */
+
+.creator {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.creator img {
+    width: 50px;
+    border: 2px var(--clr-White) solid;
+    border-radius: 50%;
+}
+
+.creator-name {
+    font-family: var(--ff);
+    font-size: 20px;
+    font-weight: var(--fw-semibold);
+    color: var(--clr-Soft-blue);
+}
+
+.creator-name span {
+    cursor: pointer;
+    color: var(--clr-White);
+}
+
+.creator-name span:hover {
+    color: var(--clr-Cyan);
+}
+
+
+/* media query */
+
+@media (max-width: 760px) {
+    .card {
+        gap: 22px;
+        padding: 20px;
+    }
+    
+    /* card-info */
+
+    .card-info {
+        gap: 20px;
+    }
+
+    .card-info_title {
+        font-size: 24px;
+    }
+
+    .card-info_subtitle {
+        font-size: var(--fs);
+    }
+
+    /* price-time */
+
+    .price-time {
+        gap: 4px;
+        margin-top: 2px;
+    }
+
+    .price {
+        gap: 10px;
+    }
+
+    .price img {
+        width: 14px;
+    }
+
+    .price-tag {
+        font-size: var(--fs);
+    }
+
+    .time {
+        gap: 6px;
+    }
+    
+    .time img {
+        width: 22px;
+    }
+    
+    .time-text {
+        font-size: var(--fs);
+    }
+
+    
+    /* creator */
+
+    .creator {
+        gap: 18px;
+    }
+
+    .creator img {
+        width: 40px;
+    }
+
+    .creator-name {
+        font-size: var(--fs);
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
